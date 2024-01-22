@@ -38,6 +38,7 @@ class BCConfig(BaseConfig):
 
         # MLP network architecture (layers after observation encoder and RNN, if present)
         self.algo.actor_layer_dims = (1024, 1024)
+        self.algo.max_gradient_norm = None
 
         # stochastic Gaussian policy settings
         self.algo.gaussian.enabled = False              # whether to train a Gaussian policy
