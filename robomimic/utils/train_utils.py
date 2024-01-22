@@ -21,7 +21,7 @@ import robomimic.utils.tensor_utils as TensorUtils
 import robomimic.utils.log_utils as LogUtils
 import robomimic.utils.file_utils as FileUtils
 
-from robomimic.utils.dataset import SequenceDataset
+from robomimic.utils.dataset import SequenceDataset, SequenceDatasetMultiFile
 from robomimic.envs.env_base import EnvBase
 from robomimic.envs.wrappers import EnvWrapper
 from robomimic.algo import RolloutPolicy
@@ -163,7 +163,8 @@ def dataset_factory(config, obs_keys, filter_by_attribute=None, dataset_path=Non
         hdf5_normalize_obs=config.train.hdf5_normalize_obs,
         filter_by_attribute=filter_by_attribute
     )
-    dataset = SequenceDataset(**ds_kwargs)
+    # dataset = SequenceDataset(**ds_kwargs)
+    dataset = SequenceDatasetMultiFile(**ds_kwargs)
 
     return dataset
 
